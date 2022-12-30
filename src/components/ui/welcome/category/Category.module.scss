@@ -1,0 +1,72 @@
+@use '../../../../styles/abstract/colors' as *;
+
+.category {
+    width: 130px;
+    height: 130px;
+    padding: 15px 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 10px;
+
+    .top {
+        display: flex;
+        align-items: center;
+
+
+        >svg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            background-color: rgba($color: $blue, $alpha: .1);
+            border-radius: 5px;
+            margin-right: 10px;
+            color: $blue,
+        }
+
+        >span {
+            font-size: 14px;
+        }
+    }
+
+    .bottom {
+        font-size: 24px;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+
+
+
+        >:nth-last-child(-n+2) {
+
+            font-size: 10px;
+        }
+
+        >svg {
+            padding-top: 1px;
+        }
+
+        >:last-child {
+            margin-left: -2px;
+        }
+    }
+
+}
+
+.success {
+    color: $success;
+}
+
+.danger {
+    color: $danger;
+}
+
+.dark {
+    background-color: $dark-600;
+}
+
+.light {
+    background-color: $gray-100;
+}

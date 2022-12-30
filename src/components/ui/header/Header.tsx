@@ -2,12 +2,11 @@ import React, { useContext } from 'react';
 import styles from './Header.module.scss';
 import { ThemeContext } from './../../../context/ThemeContext';
 import ThemeButton from '../theme-button/ThemeButton';
-
 const Header = () => {
   const { theme } = useContext(ThemeContext);
 
   return (
-    <header className={`${styles.header} ${styles[theme]}`}>
+    <header className={`${styles.header} backgroundContent`}>
       <nav>
         <a className={styles.logo} href='/#'>
           <img src='' alt='' />

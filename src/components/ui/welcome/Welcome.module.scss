@@ -1,0 +1,96 @@
+@use '../../../styles/abstract/colors' as *;
+
+.welcome {
+
+    margin-top: 10px;
+    padding: 20px 40px;
+    border-radius: 10px;
+    border: 2px dashed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .top {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 14px;
+        margin-bottom: 20px;
+
+        .breadcrumb {
+            font-size: 12px;
+        }
+
+        .date {
+            align-self: flex-end;
+        }
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+
+
+        >div {
+            height: 200px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            .heading {
+                line-height: 5px;
+            }
+
+            .subHeading {
+                font-size: 14px;
+                color: $gray-400;
+
+            }
+
+            .totalHeading {
+                color: $blue;
+
+            }
+
+            .total {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                >:nth-last-child(-n+2) {
+                    color: $green;
+                    font-size: 10px;
+                }
+
+                >svg {
+                    padding-top: 1px;
+                }
+
+                >:last-child {
+                    margin-left: -3px;
+                }
+            }
+
+
+
+            &:last-child {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                justify-content: flex-end;
+
+            }
+        }
+    }
+}
+
+.light {
+    border-color: $violet;
+}
+
+.dark {
+    border-color: $green;
+}

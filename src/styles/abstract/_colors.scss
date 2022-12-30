@@ -157,7 +157,16 @@ $black: $dark-700;
 $blue: $blue-500;
 $gray: $gray-500;
 $white: $gray-000;
-$success: $green-400;
-$danger: $red-600;
-$background: $gray-000;
-$background-dark: $dark-700;
+$green: $green-700;
+$violet: $violet-600;
+$red: $red-700;
+
+
+$success: $green;
+$danger: $red;
+
+$background: $white;
+$background-dark: $black;
+
+$background-content: $violet;
+$background-content-dark: $green;

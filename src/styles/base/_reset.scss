@@ -20,6 +20,11 @@ body {
         background-color: $background;
         transition: $bg-anim;
     }
+
+    .backgroundContent {
+        background-color: $background-content;
+        transition: $bg-anim;
+    }
 }
 
 .dark {
@@ -31,6 +36,11 @@ body {
 
     .background {
         background-color: $background-dark;
+        transition: $bg-anim;
+    }
+
+    .backgroundContent {
+        background-color: $background-content-dark;
         transition: $bg-anim;
     }
 
