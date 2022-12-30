@@ -1,8 +1,10 @@
 @use '../../../styles/abstract/colors' as *;
+@use '../../../styles/abstract/animations' as *;
 
 .header {
     border-radius: 10px;
-
+    position: sticky;
+    top: 0;
 
     nav {
         display: flex;
@@ -27,6 +29,7 @@
             cursor: pointer;
 
             color: $white;
+            transition: $color-anim;
 
             li {
                 margin: 1em;
@@ -36,9 +39,11 @@
 }
 
 .light {
+    transition: $bg-anim;
     background-color: $violet-400;
 }
 
 .dark {
+    transition: $bg-anim;
     background-color: $yellow-600;
 }

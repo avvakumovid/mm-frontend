@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styles from './Header.module.scss';
 import { ThemeContext } from './../../../context/ThemeContext';
+import ThemeButton from '../theme-button/ThemeButton';
 
 const Header = () => {
   const { theme } = useContext(ThemeContext);
@@ -20,6 +21,9 @@ const Header = () => {
           </li>
           <li>
             <a href='/#'>Login</a>
+          </li>
+          <li>
+            <ThemeButton />
           </li>
         </ul>
       </nav>

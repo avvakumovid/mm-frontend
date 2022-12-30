@@ -1,19 +1,24 @@
 @use '../abstract/colors' as *;
+@use '../abstract/animations' as *;
 
 body {
     padding: 0;
     margin: 0;
+
 }
 
 
-
 .light {
+
+
     .text {
         color: $black;
+        transition: $color-anim;
     }
 
     .background {
         background-color: $background;
+        transition: $bg-anim;
     }
 }
 
@@ -21,10 +26,12 @@ body {
 
     .text {
         color: $white;
+        transition: $color-anim;
     }
 
     .background {
         background-color: $background-dark;
+        transition: $bg-anim;
     }
 
 }
@@ -33,7 +40,8 @@ body {
 .flex {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+
 }
 
 .wrapper {
