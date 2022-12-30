@@ -1,0 +1,44 @@
+@use '../../../styles/abstract/colors' as *;
+
+.header {
+    border-radius: 10px;
+
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 5vh;
+        padding: 20px 40px;
+
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: $white;
+        }
+
+        ul {
+            display: flex;
+            list-style-type: none;
+            font-weight: bold;
+            align-items: center;
+            cursor: pointer;
+
+            color: $white;
+
+            li {
+                margin: 1em;
+            }
+        }
+    }
+}
+
+.light {
+    background-color: $violet-400;
+}
+
+.dark {
+    background-color: $yellow-600;
+}
