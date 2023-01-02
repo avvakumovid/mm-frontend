@@ -60,8 +60,9 @@
                 align-items: center;
                 justify-content: space-between;
 
+
                 >:nth-last-child(-n+2) {
-                    color: $green;
+                    color: $success;
                     font-size: 10px;
                 }
 
