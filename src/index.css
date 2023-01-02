@@ -11,6 +11,18 @@ code {
     monospace;
 }
 
+html {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
 a {
   color: inherit;
   text-decoration: inherit;

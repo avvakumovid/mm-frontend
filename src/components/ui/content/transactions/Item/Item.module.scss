@@ -1,0 +1,66 @@
+@use '../../../../../styles/abstract/colors' as *;
+@use '../../../../../styles/abstract/animations' as *;
+
+.item {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: $bg-anim;
+
+    .left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $teal-500;
+        margin-right: 20px;
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+
+        >:last-child {
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+
+    .amount {
+        text-align: center;
+        min-width: 60px;
+        border-radius: 5px;
+    }
+
+
+}
+
+.success {
+    color: $success;
+    background-color: rgba($color: $green-300, $alpha: .1);
+}
+
+.danger {
+    color: $danger;
+    background-color: rgba($color: $red-300, $alpha: .1);
+}
+
+.light:nth-child(2n+1) {
+    background-color: $gray-200
+}
+
+.dark:nth-child(2n+1) {
+    background-color: $dark-500
+}
