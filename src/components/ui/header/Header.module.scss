@@ -3,16 +3,13 @@
 
 .header {
     border-radius: 10px;
-    position: sticky;
-    top: 0;
 
     nav {
+        height: 10vh;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 5vh;
-        padding: 20px 40px;
-
+        padding: 0 40px;
 
         .logo {
             width: 40px;

@@ -1,14 +1,13 @@
 @use '../../../styles/abstract/colors' as *;
 
 .welcome {
-
-    margin-top: 15px;
     padding: 20px 40px;
     border-radius: 10px;
     border: 2px dashed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 30vh;
 
     .top {
         display: flex;
@@ -32,7 +31,6 @@
 
 
         >div {
-            height: 200px;
             width: 50%;
             display: flex;
             flex-direction: column;

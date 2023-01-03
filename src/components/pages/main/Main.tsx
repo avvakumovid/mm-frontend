@@ -1,10 +1,11 @@
 import React from 'react';
-import { Content, Welcome } from '../../ui';
+import { Content, Header, Welcome } from '../../ui';
 import styles from './Main.module.scss';
 
 const Main = () => {
   return (
-    <div>
+    <div className={styles.main}>
+      <Header />
       <Welcome />
       <Content />
     </div>

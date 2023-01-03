@@ -10,7 +10,6 @@ const Layout: FC<PropsWithChildren<LayoutProps>> = ({ children }) => {
   return (
     <div className={`${theme} flex`}>
       <div className='background wrapper'>
-        <Header />
         <Outlet />
       </div>
     </div>

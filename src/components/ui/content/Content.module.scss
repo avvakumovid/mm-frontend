@@ -2,13 +2,14 @@
 @use '../../../styles/abstract/animations' as *;
 
 .content {
-    margin-top: 15px;
     padding: 0 40px;
     border-radius: 10px;
     // border: 2px dashed;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    height: calc(50vh - 10px);
 
     >div {
         padding: 20px 15px;
@@ -28,6 +29,9 @@
     }
 
     .chart {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 50%;
     }
 

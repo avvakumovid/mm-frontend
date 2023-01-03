@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   LineChart,
   Line,
@@ -9,18 +9,33 @@ import {
   Area,
   YAxis,
 } from 'recharts';
+var mydate = new Date();
 const data = [
-  { name: Date.now(), amount: 400 },
-  { name: Date.now(), amount: 300 },
-  { name: Date.now(), amount: 50 },
-  { name: Date.now(), amount: 700 },
+  { name: mydate.toDateString(), amount: 400 },
+  { name: mydate.toDateString(), amount: 300 },
+  { name: mydate.toDateString(), amount: 50 },
+  { name: mydate.toDateString(), amount: 700 },
 ];
 
 const Graphic = () => {
+  const [height, setWindowHeight] = useState(window.innerHeight * 0.4);
+  const [width, setWindowWidth] = useState(window.innerWidth * 0.45);
+
+  const detectSize = () => {
+    setWindowHeight(window.innerHeight * 0.4);
+    setWindowWidth(window.innerWidth * 0.4);
+  };
+  useEffect(() => {
+    window.addEventListener('resize', detectSize);
+
+    return () => {
+      window.removeEventListener('resize', detectSize);
+    };
+  }, [height, width]);
   return (
     <AreaChart
-      width={730}
-      height={350}
+      width={width}
+      height={height}
       data={data}
       margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
     >

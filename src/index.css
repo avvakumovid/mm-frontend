@@ -12,7 +12,7 @@ code {
 }
 
 html {
-  overflow: auto;
+  overflow: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
 

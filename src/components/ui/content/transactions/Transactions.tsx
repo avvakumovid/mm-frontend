@@ -34,6 +34,18 @@ const data: ItemProps[] = [
     date: 'Thu 27 Oct',
     logo: '',
   },
+  {
+    amount: 754,
+    name: 'Google',
+    date: 'Thu 27 Oct',
+    logo: '',
+  },
+  {
+    amount: 754,
+    name: 'Goqwegle',
+    date: 'Thu 27 Oct',
+    logo: '',
+  },
 ];
 
 const Transactions = () => {
@@ -42,7 +54,13 @@ const Transactions = () => {
       <Header />
       <div className={styles.content}>
         {data.map(d => (
-          <Item name={d.name} date={d.date} amount={d.amount} logo={d.logo} />
+          <Item
+            key={d.name}
+            name={d.name}
+            date={d.date}
+            amount={d.amount}
+            logo={d.logo}
+          />
         ))}
       </div>
     </div>
