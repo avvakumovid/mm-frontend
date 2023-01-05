@@ -1,0 +1,45 @@
+@use '../../../styles/abstract/colors' as *;
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 5vh;
+
+    >form {
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 40px;
+        margin-top: 20vh;
+
+        >input {
+            margin-bottom: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border-color: $blue;
+        }
+
+        .error {
+            color: $danger;
+            font-size: 12px;
+            height: 15px;
+            margin-bottom: 5px;
+        }
+
+        .submit {
+            margin-top: 20px;
+            width: 100px;
+            align-self: center;
+            background-color: $blue;
+        }
+    }
+}
+
+.light {
+    background-color: $gray-0;
+}
+
+.dark {
+    background-color: $black-0;
+}

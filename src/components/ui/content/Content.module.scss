@@ -16,6 +16,10 @@
         margin-right: 15px;
         border-radius: 5px;
         transition: $bg-anim;
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     .light {}
