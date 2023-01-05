@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { IUser } from '../../types'
 
-export interface login {
+export interface ILogin {
     username: string
     password: string
 }
 
-interface loginResponse {
+interface ILoginResponse {
     user: IUser
     token: string
 }
@@ -15,7 +15,7 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4200/auth' }),
     endpoints: builder => ({
-        login: builder.query<loginResponse, login>({
+        login: builder.query<ILoginResponse, ILogin>({
             query: (body) => ({
                 url: 'login',
                 method: 'POST',

@@ -1,10 +1,8 @@
-import React, { useContext } from 'react';
 import styles from './Header.module.scss';
-import { ThemeContext } from './../../../context/ThemeContext';
 import ThemeButton from '../theme-button/ThemeButton';
+import { useAuth } from '../../../hooks/useAuth';
 const Header = () => {
-  const { theme } = useContext(ThemeContext);
-
+  const { user, logout } = useAuth();
   return (
     <header className={`${styles.header} backgroundContent`}>
       <nav>
@@ -13,13 +11,12 @@ const Header = () => {
         </a>
         <ul className='text'>
           <li>
-            <p>Main</p>
+            <span>
+              {user?.firstName} {user?.lastName}
+            </span>
           </li>
           <li>
-            <a href='/#'>Main</a>
-          </li>
-          <li>
-            <a href='/#'>Login</a>
+            <button onClick={() => logout()}>LOG OUT</button>
           </li>
           <li>
             <ThemeButton />

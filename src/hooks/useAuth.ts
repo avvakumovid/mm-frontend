@@ -1,23 +1,29 @@
 import { useCookies } from 'react-cookie';
-import { useState, useEffect } from 'react';
-import { login, useLazyAuthQuery, useLazyLoginQuery } from '../store/features/userApi';
-import { data } from './../components/ui/welcome/data';
+import { useEffect, useContext } from 'react';
+import { useLazyAuthQuery, useLazyLoginQuery } from '../store/features/userApi';
+import { ILogin } from './../store/features/userApi';
+import { AuthContext } from './../context/AuthContext';
 
 export const useAuth = () => {
-    const [cookies, setCookie] = useCookies(['access-token']);
-    const [isAuth, setAuth] = useState(false)
-    const [trigger, { data: loginResponse }] = useLazyLoginQuery()
-    const [auth, { data: user, isError, }] = useLazyAuthQuery()
-    const login = async (data: login) => {
-        trigger(data)
+    const [cookies, setCookie, removeCookie] = useCookies(['access-token']);
+    const { token, user, logInOut } = useContext(AuthContext)
+    const [triggerLogin, { data: loginResponse }] = useLazyLoginQuery()
+    const [auth, { data: authResponse, isError, }] = useLazyAuthQuery()
+    const login = async (data: ILogin) => {
+        triggerLogin(data)
     }
+
     useEffect(() => {
-        console.log(cookies['access-token'])
         if (cookies['access-token']) {
             auth(cookies['access-token'])
-            setAuth(true)
         }
-    }, [cookies, auth])
+
+    }, [cookies, auth, authResponse])
+    useEffect(() => {
+        if (authResponse && cookies['access-token']) {
+            logInOut(cookies['access-token'], authResponse)
+        }
+    }, [authResponse, cookies, logInOut])
     useEffect(() => {
         const date = new Date()
         date.setMonth(date.getMonth() + 1)
@@ -25,12 +31,14 @@ export const useAuth = () => {
             setCookie('access-token', loginResponse.token, {
                 expires: date
             })
-            setAuth(true)
+            logInOut(loginResponse.token, loginResponse.user)
         }
-    }, [loginResponse, setCookie])
+    }, [loginResponse, setCookie, isError, logInOut])
     const logout = () => {
-        setAuth(false)
+        console.log('dd')
+        logInOut('', null)
+        removeCookie('access-token')
     }
 
-    return { isAuth, login, logout }
+    return { login, logout, token, user }
 } 
