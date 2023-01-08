@@ -1,65 +1,29 @@
-import React from 'react';
+import { useTransactionsQuery } from '../../../../store/features/transactionsApi';
 import Header from './Header/Header';
-import Item, { ItemProps } from './Item/Item';
+import Item from './Item/Item';
 import styles from './Transactions.module.scss';
-
-const data: ItemProps[] = [
-  {
-    amount: 251,
-    name: 'PayPall',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-  {
-    amount: -312,
-    name: 'Binance',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-  {
-    amount: 43,
-    name: 'YouTube',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-  {
-    amount: 754,
-    name: 'Google',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-  {
-    amount: 754,
-    name: 'Google',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-  {
-    amount: 754,
-    name: 'Google',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-  {
-    amount: 754,
-    name: 'Goqwegle',
-    date: 'Thu 27 Oct',
-    logo: '',
-  },
-];
+import { useAuth } from './../../../../hooks/useAuth';
+import { useEffect } from 'react';
 
 const Transactions = () => {
+  const { token } = useAuth();
+  const { data = [], isLoading } = useTransactionsQuery({ token });
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+  if (isLoading) return <span>Loading</span>;
+
   return (
     <div className={styles.transactions}>
       <Header />
       <div className={styles.content}>
-        {data.map(d => (
+        {data.map(transaction => (
           <Item
-            key={d.name}
-            name={d.name}
-            date={d.date}
-            amount={d.amount}
-            logo={d.logo}
+            key={transaction.id}
+            name={transaction.name}
+            createdAt={transaction.createdAt}
+            amount={transaction.amount}
+            image={transaction.category.image}
           />
         ))}
       </div>

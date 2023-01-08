@@ -30,7 +30,7 @@ export const userApi = createApi({
                     Authorization: `Bearer ${token}`
                 }
             })
-        })
+        }),
     })
 })
 

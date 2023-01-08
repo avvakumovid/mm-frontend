@@ -2,22 +2,22 @@ import React, { FC, useContext } from 'react';
 import styles from './Item.module.scss';
 import { ThemeContext } from './../../../../../context/ThemeContext';
 
-export interface ItemProps {
+interface ItemProps {
   name: string;
-  date: string;
+  createdAt: string;
   amount: number;
-  logo: string;
+  image: string;
 }
 
-const Item: FC<ItemProps> = ({ name, date, amount, logo }) => {
+const Item: FC<ItemProps> = ({ amount, image, createdAt, name }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={`${styles.item} ${styles[theme]}`}>
       <div className={styles.left}>
-        <div className={styles.logo} />
+        <img className={styles.logo} src={image} alt={name} />
         <div className={`${styles.text} text`}>
           <span>{name}</span>
-          <span>{date}</span>
+          <span>{new Date(createdAt).toLocaleString()}</span>
         </div>
       </div>
       <div
