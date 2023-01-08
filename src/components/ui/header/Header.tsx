@@ -16,9 +16,9 @@ const Header = () => {
             </span>
           </li>
           <li>
-            <a className={styles.logout} onClick={() => logout()}>
+            <span className={styles.logout} onClick={() => logout()}>
               LOG OUT
-            </a>
+            </span>
           </li>
           <li>
             <ThemeButton />

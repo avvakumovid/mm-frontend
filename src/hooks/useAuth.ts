@@ -7,8 +7,8 @@ import { AuthContext } from './../context/AuthContext';
 export const useAuth = () => {
     const [cookies, setCookie, removeCookie] = useCookies(['access-token']);
     const { token, user, logInOut } = useContext(AuthContext)
-    const [triggerLogin, { data: loginResponse }] = useLazyLoginQuery()
-    const [auth, { data: authResponse, isError, }] = useLazyAuthQuery()
+    const [triggerLogin, { data: loginResponse, isError },] = useLazyLoginQuery()
+    const [auth, { data: authResponse }] = useLazyAuthQuery()
     const login = async (data: ILogin) => {
         triggerLogin(data)
     }
@@ -34,11 +34,11 @@ export const useAuth = () => {
             logInOut(loginResponse.token, loginResponse.user)
         }
     }, [loginResponse, setCookie, isError, logInOut])
+
     const logout = () => {
-        console.log('dd')
         logInOut('', null)
         removeCookie('access-token')
     }
 
-    return { login, logout, token, user }
+    return { login, logout, token, user, isError }
 } 
