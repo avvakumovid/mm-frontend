@@ -30,7 +30,18 @@
 
             li {
                 margin: 1em;
+
+                .logout {
+                    background: none;
+                    border: none;
+                }
+
+                &:hover {
+                    color: $blue-700;
+                }
             }
+
+
         }
     }
 }
