@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAuth } from '../../../hooks/useAuth';
+import { useTransactionsByDateQuery } from '../../../store/features/transactionsApi';
 import {
-  LineChart,
-  Line,
   AreaChart,
   XAxis,
   CartesianGrid,
@@ -9,17 +9,12 @@ import {
   Area,
   YAxis,
 } from 'recharts';
-var mydate = new Date();
-const data = [
-  { name: mydate.toDateString(), amount: 400 },
-  { name: mydate.toDateString(), amount: 300 },
-  { name: mydate.toDateString(), amount: 50 },
-  { name: mydate.toDateString(), amount: 700 },
-];
 
 const Graphic = () => {
   const [height, setWindowHeight] = useState(window.innerHeight * 0.4);
   const [width, setWindowWidth] = useState(window.innerWidth * 0.45);
+  const { token } = useAuth();
+  const { data = [], isLoading } = useTransactionsByDateQuery(token);
 
   const detectSize = () => {
     setWindowHeight(window.innerHeight * 0.4);
@@ -40,32 +35,33 @@ const Graphic = () => {
       margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
     >
       <defs>
-        <linearGradient id='colorUv' x1='0' y1='0' x2='0' y2='1'>
-          <stop offset='5%' stopColor='#339AF0' stopOpacity={0.8} />
-          <stop offset='95%' stopColor='#339AF0' stopOpacity={0} />
+        <linearGradient id='incomeColor' x1='0' y1='0' x2='0' y2='1'>
+          <stop offset='5%' stopColor='#2B8A3E' stopOpacity={0.8} />
+          <stop offset='95%' stopColor='#2B8A3E' stopOpacity={0} />
         </linearGradient>
-        <linearGradient id='colorPv' x1='0' y1='0' x2='0' y2='1'>
-          <stop offset='5%' stopColor='#82ca9d' stopOpacity={0.8} />
-          <stop offset='95%' stopColor='#82ca9d' stopOpacity={0} />
+        <linearGradient id='expenseColor' x1='0' y1='0' x2='0' y2='1'>
+          <stop offset='5%' stopColor='#C92A2A' stopOpacity={0.8} />
+          <stop offset='95%' stopColor='#C92A2A' stopOpacity={0} />
         </linearGradient>
       </defs>
-      <XAxis dataKey='name' />
+      <XAxis dataKey='createdAt' />
       <YAxis />
       <CartesianGrid color='#339AF0' strokeDasharray='8' />
       <Tooltip />
       <Area
         type='monotone'
-        dataKey='amount'
-        stroke='#339AF0'
-        fillOpacity={1}
-        fill='url(#colorUv)'
+        dataKey='expense'
+        stroke='#C92A2A'
+        fillOpacity={0.3}
+        fill='url(#expenseColor)'
       />
       <Area
         type='monotone'
-        dataKey='pv'
-        stroke='#82ca9d'
-        fillOpacity={1}
-        fill='url(#colorPv)'
+        dataKey='income'
+        stroke='#2B8A3E'
+        stackId='1'
+        fillOpacity={0.3}
+        fill='url(#incomeColor)'
       />
     </AreaChart>
   );

@@ -3,14 +3,11 @@ import Header from './Header/Header';
 import Item from './Item/Item';
 import styles from './Transactions.module.scss';
 import { useAuth } from './../../../../hooks/useAuth';
-import { useEffect } from 'react';
 
 const Transactions = () => {
   const { token } = useAuth();
   const { data = [], isLoading } = useTransactionsQuery({ token });
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
+  //TODO: add skeleton
   if (isLoading) return <span>Loading</span>;
 
   return (

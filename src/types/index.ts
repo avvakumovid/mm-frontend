@@ -21,3 +21,10 @@ export interface ITransaction {
     category: ICategory
     createdAt: string
 }
+
+
+export interface ITransactionsByDate {
+    createdAt: string
+    incomes: number,
+    expenses: number
+}

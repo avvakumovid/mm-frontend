@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ITransaction } from './../../types/index';
+import { ITransaction, ITransactionsByDate } from './../../types/index';
 
 
 export const transactionsApi = createApi({
@@ -14,7 +14,15 @@ export const transactionsApi = createApi({
                 }
             })
         }),
+        transactionsByDate: builder.query<ITransactionsByDate[], string>({
+            query: token => ({
+                url: '/date',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
+        })
     })
 })
 
-export const { useTransactionsQuery, } = transactionsApi
+export const { useTransactionsQuery, useTransactionsByDateQuery } = transactionsApi
