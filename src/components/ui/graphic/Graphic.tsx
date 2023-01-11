@@ -9,12 +9,15 @@ import {
   Area,
   YAxis,
 } from 'recharts';
+import { ITransactionsByDate } from '../../../types';
 
-const Graphic = () => {
+interface GraphicProps {
+  data: ITransactionsByDate[];
+}
+
+const Graphic = ({ data }: GraphicProps) => {
   const [height, setWindowHeight] = useState(window.innerHeight * 0.4);
   const [width, setWindowWidth] = useState(window.innerWidth * 0.45);
-  const { token } = useAuth();
-  const { data = [], isLoading } = useTransactionsByDateQuery(token);
 
   const detectSize = () => {
     setWindowHeight(window.innerHeight * 0.4);
@@ -32,7 +35,10 @@ const Graphic = () => {
       width={width}
       height={height}
       data={data}
-      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+      style={{
+        alignSelf: 'self-start',
+      }}
+      margin={{ top: 10, right: 50, bottom: 0 }}
     >
       <defs>
         <linearGradient id='incomeColor' x1='0' y1='0' x2='0' y2='1'>

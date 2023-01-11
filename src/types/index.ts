@@ -28,3 +28,8 @@ export interface ITransactionsByDate {
     incomes: number,
     expenses: number
 }
+
+
+export const periodArray = ['day', 'week', 'month', 'year'] as const;
+
+export type period = typeof periodArray[number]

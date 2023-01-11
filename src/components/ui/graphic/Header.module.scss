@@ -1,0 +1,35 @@
+@use '../../../styles/abstract/colors' as *;
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 10px;
+
+    >span {
+        padding: 0 10px 5px;
+        min-width: 12%;
+        text-align: center;
+        text-transform: capitalize;
+        border-radius: 20px;
+        border: 1px solid;
+
+    }
+
+    .dark {
+        border-color: $white;
+    }
+
+    .light {
+        border-color: $black;
+    }
+
+    .active {
+        border-color: $blue;
+        color: $blue;
+    }
+}

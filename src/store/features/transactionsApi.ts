@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ITransaction, ITransactionsByDate } from './../../types/index';
+import { ITransaction, ITransactionsByDate, period } from './../../types/index';
 
 
 export const transactionsApi = createApi({
@@ -14,11 +14,11 @@ export const transactionsApi = createApi({
                 }
             })
         }),
-        transactionsByDate: builder.query<ITransactionsByDate[], string>({
-            query: token => ({
-                url: '/date',
+        transactionsByDate: builder.query<ITransactionsByDate[], { period: period, token: string }>({
+            query: props => ({
+                url: `/date?period=${props.period}`,
                 headers: {
-                    Authorization: `Bearer ${token}`
+                    Authorization: `Bearer ${props.token}`
                 }
             })
         })
