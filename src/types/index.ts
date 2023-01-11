@@ -35,7 +35,7 @@ export const periodArray = ['day', 'week', 'month', 'year'] as const;
 
 export type period = typeof periodArray[number]
 
-export interface groupedTransaction {
+export interface GroupedTransaction {
     count: number
     total: number
     name: string

@@ -6,6 +6,7 @@ import { Header, Graphic } from './graphic';
 import { useAuth } from './../../../hooks/useAuth';
 import { useTransactionsByDateQuery } from '../../../store/features/transactionsApi';
 import { period } from '../../../types';
+import Categories from './categories/Categories';
 
 const Content = () => {
   const { theme } = useContext(ThemeContext);
@@ -24,7 +25,9 @@ const Content = () => {
         <Header period={period} setPeriod={setPeriod} />
         <Graphic data={data} />
       </div>
-      <div className={styles.right}></div>
+      <div className={styles.right}>
+        <Categories />
+      </div>
     </div>
   );
 };

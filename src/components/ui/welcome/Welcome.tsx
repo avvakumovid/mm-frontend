@@ -32,7 +32,7 @@ const Welcome = () => {
         </div>
         <div>
           {data.map(d => (
-            <Category {...d} />
+            <Category key={d.title} {...d} />
           ))}
         </div>
       </div>

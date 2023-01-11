@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { ITransaction, ITransactionsByDate, period } from './../../types/index';
+import { GroupedTransaction, ITransaction, ITransactionsByDate, period } from './../../types/index';
 
 
 export const transactionsApi = createApi({
@@ -21,8 +21,16 @@ export const transactionsApi = createApi({
                     Authorization: `Bearer ${props.token}`
                 }
             })
+        }),
+        groupedTransactions: builder.query<GroupedTransaction[], string>({
+            query: token => ({
+                url: '/group',
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            })
         })
     })
 })
 
-export const { useTransactionsQuery, useTransactionsByDateQuery } = transactionsApi
+export const { useTransactionsQuery, useTransactionsByDateQuery, useGroupedTransactionsQuery } = transactionsApi
