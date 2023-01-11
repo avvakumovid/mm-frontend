@@ -7,11 +7,12 @@ export interface IUser {
     updatedAt: string
 }
 
+export type CategoryType = 'expense' | 'income'
 export interface ICategory {
     id: number
     name: string
     image: string
-    type: 'expense' | 'income'
+    type: CategoryType
 }
 
 export interface ITransaction {
@@ -33,3 +34,11 @@ export interface ITransactionsByDate {
 export const periodArray = ['day', 'week', 'month', 'year'] as const;
 
 export type period = typeof periodArray[number]
+
+export interface groupedTransaction {
+    count: number
+    total: number
+    name: string
+    type: CategoryType
+    image: string
+}

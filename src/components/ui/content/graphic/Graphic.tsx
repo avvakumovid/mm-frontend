@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useAuth } from '../../../hooks/useAuth';
-import { useTransactionsByDateQuery } from '../../../store/features/transactionsApi';
+import { useAuth } from '../../../../hooks/useAuth';
+import { useTransactionsByDateQuery } from '../../../../store/features/transactionsApi';
 import {
   AreaChart,
   XAxis,
@@ -9,7 +9,7 @@ import {
   Area,
   YAxis,
 } from 'recharts';
-import { ITransactionsByDate } from '../../../types';
+import { ITransactionsByDate } from '../../../../types';
 
 interface GraphicProps {
   data: ITransactionsByDate[];

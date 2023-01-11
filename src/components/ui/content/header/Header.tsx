@@ -1,7 +1,5 @@
-import React, { useContext } from 'react';
 import styles from './Header.module.scss';
 import { RiArrowRightSLine, RiArrowLeftSLine } from 'react-icons/ri';
-import { ThemeContext } from './../../../../../context/ThemeContext';
 
 const Header = () => {
   return (

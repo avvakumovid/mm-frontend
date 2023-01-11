@@ -1,7 +1,7 @@
 import React, { useContext, Dispatch, SetStateAction } from 'react';
 import styles from './Header.module.scss';
-import { period, periodArray } from './../../../types/index';
-import { ThemeContext } from './../../../context/ThemeContext';
+import { period, periodArray } from '../../../../types/index';
+import { ThemeContext } from '../../../../context/ThemeContext';
 
 interface HeaderProps {
   period: period;

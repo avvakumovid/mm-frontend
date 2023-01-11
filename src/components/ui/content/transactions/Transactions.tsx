@@ -1,5 +1,5 @@
 import { useTransactionsQuery } from '../../../../store/features/transactionsApi';
-import Header from './Header/Header';
+import Header from '../header/Header';
 import Item from './Item/Item';
 import styles from './Transactions.module.scss';
 import { useAuth } from './../../../../hooks/useAuth';

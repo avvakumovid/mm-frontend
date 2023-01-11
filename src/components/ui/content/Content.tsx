@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import styles from './Content.module.scss';
 import { ThemeContext } from './../../../context/ThemeContext';
 import Transactions from './transactions/Transactions';
-import { Header, Graphic } from '../graphic';
+import { Header, Graphic } from './graphic';
 import { useAuth } from './../../../hooks/useAuth';
 import { useTransactionsByDateQuery } from '../../../store/features/transactionsApi';
 import { period } from '../../../types';
