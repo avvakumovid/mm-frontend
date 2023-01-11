@@ -10,17 +10,17 @@ const Header = () => {
           <img src='' alt='' />
         </a>
         <ul className='text'>
-          <li key={1}>
+          <li>
             <span>
               {user?.firstName} {user?.lastName}
             </span>
           </li>
-          <li key={2}>
+          <li>
             <span className={styles.logout} onClick={() => logout()}>
               LOG OUT
             </span>
           </li>
-          <li key={3}>
+          <li>
             <ThemeButton />
           </li>
         </ul>
