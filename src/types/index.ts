@@ -42,3 +42,9 @@ export interface GroupedTransaction {
     type: CategoryType
     image: string
 }
+
+export interface ISumSpends {
+    count: number
+    total: number
+    type: CategoryType
+}

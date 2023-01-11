@@ -84,6 +84,17 @@
             }
         }
     }
+
+    .bottom {
+        display: flex;
+        flex-direction: row;
+
+        >div:first-child {
+            padding-right: 10px;
+            margin-right: 10px;
+            border-right: 1px solid $blue;
+        }
+    }
 }
 
 .light {

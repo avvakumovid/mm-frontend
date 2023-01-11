@@ -4,8 +4,13 @@ import { useContext } from 'react';
 import { ThemeContext } from './../../../context/ThemeContext';
 import Category from './category/Category';
 import { data } from './data';
+import { useAuth } from './../../../hooks/useAuth';
+import { useSumSpendsQuery } from '../../../store/features/transactionsApi';
+
 const Welcome = () => {
   const { theme } = useContext(ThemeContext);
+  const { token } = useAuth();
+  const { data: spends = [] } = useSumSpendsQuery(token);
   return (
     <div className={`${styles.welcome} text ${styles[theme]} `}>
       <div className={styles.top}>
@@ -21,13 +26,17 @@ const Welcome = () => {
               distinctio.
             </span>
           </div>
-          <div>
-            <span className={styles.totalHeading}>Total Salary</span>
-            <div className={styles.total}>
-              <span>$2,213.00</span>
-              <MdArrowDropUp size={16} />
-              <span>0.50%</span>
-            </div>
+          <div className={styles.bottom}>
+            {spends.map(spend => (
+              <div>
+                <span className={styles.totalHeading}>Total {spend.type}</span>
+                <div className={styles.total}>
+                  <span>{spend.total} $</span>
+                  <MdArrowDropUp size={16} />
+                  <span>{spend.count}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         <div>
