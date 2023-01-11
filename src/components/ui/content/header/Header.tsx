@@ -10,8 +10,8 @@ const Header = ({ heading, subHeading }: HeaderProps) => {
   return (
     <div className={`${styles.header} text`}>
       <div className={styles.heading}>
-        <span>All transactions</span>
-        <span>Recent expenses</span>
+        <span>{heading}</span>
+        <span>{subHeading}</span>
       </div>
       <div className={styles.arrows}>
         <RiArrowLeftSLine />
