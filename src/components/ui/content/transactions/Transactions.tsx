@@ -12,7 +12,7 @@ const Transactions = () => {
 
   return (
     <div className={styles.transactions}>
-      <Header />
+      <Header heading='All transactions' subHeading='Recent expenses' />
       <div className={styles.content}>
         {data.map(transaction => (
           <Item
