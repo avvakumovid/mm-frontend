@@ -1,5 +1,5 @@
 import React, { FC, useContext } from 'react';
-import { GiAbstract115 } from 'react-icons/gi';
+import { GiReceiveMoney, GiPayMoney } from 'react-icons/gi';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import styles from './Category.module.scss';
 import { ThemeContext } from './../../../../context/ThemeContext';
@@ -7,27 +7,31 @@ import { ThemeContext } from './../../../../context/ThemeContext';
 export interface CategoryProps {
   title: string;
   count: number;
-  progress: number;
+  total: number;
 }
 
-const Category: FC<CategoryProps> = ({ title, count, progress }) => {
+const Category: FC<CategoryProps> = ({ title, count, total }) => {
   const { theme } = useContext(ThemeContext);
   return (
     <div className={`${styles.category} ${styles[theme]} `}>
       <div className={styles.top}>
-        <GiAbstract115 />
-        <span>{title}</span>
+        {total > 0 ? (
+          <GiReceiveMoney size={26} className={styles.success} />
+        ) : (
+          <GiPayMoney size={26} className={styles.danger} />
+        )}
+        <span>Total count {title}`s</span>
       </div>
       <div className={styles.bottom}>
         <span>{count}</span>
-        {progress > 0 ? (
+        {total > 0 ? (
           <MdArrowDropUp size={16} className={styles.success} />
         ) : (
           <MdArrowDropDown size={16} className={styles.danger} />
         )}
 
-        <span className={`${progress > 0 ? styles.success : styles.danger}`}>
-          {progress}%
+        <span className={`${total > 0 ? styles.success : styles.danger}`}>
+          {total}
         </span>
       </div>
     </div>
