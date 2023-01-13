@@ -25,9 +25,7 @@ const Item: FC<ItemProps> = ({ amount, image, createdAt, name }) => {
           amount > 0 ? styles.success : styles.danger
         }`}
       >
-        <span>
-          {amount > 0 ? '+' : '-'}$ {Math.abs(amount)}
-        </span>
+        <span>{amount}$</span>
       </div>
     </div>
   );

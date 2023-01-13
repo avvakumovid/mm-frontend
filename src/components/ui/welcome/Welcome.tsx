@@ -1,5 +1,5 @@
 import styles from './Welcome.module.scss';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ThemeContext } from './../../../context/ThemeContext';
 import Category from './category/Category';
 import { useAuth } from './../../../hooks/useAuth';
@@ -8,7 +8,11 @@ import { useSumSpendsQuery } from '../../../store/features/transactionsApi';
 const Welcome = () => {
   const { theme } = useContext(ThemeContext);
   const { token, user } = useAuth();
+  const [totalSpends, setTotalSpends] = useState(0);
   const { data: spends = [] } = useSumSpendsQuery(token);
+  useEffect(() => {
+    setTotalSpends(+spends.reduce((acc, n) => (acc += n.total), 0).toFixed(2));
+  }, [spends]);
   return (
     <div className={`${styles.welcome} text ${styles[theme]} `}>
       <div className={styles.top}>
@@ -27,8 +31,10 @@ const Welcome = () => {
             <div>
               <span className={styles.totalHeading}>Total account</span>
               <div className={styles.total}>
-                <span>
-                  {spends.reduce((acc, n) => (acc += n.total), 0).toFixed(2)} $
+                <span
+                  className={totalSpends > 0 ? styles.success : styles.danger}
+                >
+                  {totalSpends}$
                 </span>
               </div>
             </div>

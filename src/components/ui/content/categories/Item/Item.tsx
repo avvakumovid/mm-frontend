@@ -19,9 +19,7 @@ const Item = ({ count, image, name, total, type }: GroupedTransaction) => {
           total > 0 ? styles.success : styles.danger
         }`}
       >
-        <span>
-          {total > 0 ? '+' : '-'}$ {Math.abs(total)}
-        </span>
+        <span>{total}$</span>
       </div>
     </div>
   );
