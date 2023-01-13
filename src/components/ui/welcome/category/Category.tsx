@@ -31,7 +31,7 @@ const Category: FC<CategoryProps> = ({ title, count, total }) => {
         )}
 
         <span className={`${total > 0 ? styles.success : styles.danger}`}>
-          ${total}
+          {total}%
         </span>
       </div>
     </div>
