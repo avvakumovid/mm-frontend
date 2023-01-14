@@ -6,6 +6,12 @@ export interface ILogin {
     password: string
 }
 
+export interface ISingUp {
+    firstName: string
+    lastName: string
+    email: string
+    password: string
+}
 interface ILoginResponse {
     user: IUser
     token: string
@@ -31,7 +37,14 @@ export const userApi = createApi({
                 }
             })
         }),
+        singup: builder.query<ILoginResponse, ISingUp>({
+            query: (body) => ({
+                url: 'singup',
+                method: 'POST',
+                body
+            }),
+        }),
     })
 })
 
-export const { useLazyLoginQuery, useLazyAuthQuery } = userApi
+export const { useLazyLoginQuery, useLazyAuthQuery, useLazySingupQuery } = userApi
